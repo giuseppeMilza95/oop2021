@@ -1,6 +1,11 @@
 package com.company;
 
 public class Animal {
+
+    public enum FoodType{
+        meet,crops,all
+    }
+
     final static Double DEFAULT_DOG_WEIGHT = 6.0;
     private static final Double DEFAULT_FOOD_WEIGHT = 1.0;
     public String name;
@@ -9,21 +14,27 @@ public class Animal {
     final static Double DEFAULT_WEIGHT = 0.5;
     public final String species;
     private Double weight;
+    public  FoodType foodType;
 
     public Animal(String species) {
         this.species = species;
+        this.foodType = foodType;
 
         switch (species) {
             case "dog":
+                this.foodType = FoodType.meet;
                 this.weight = DEFAULT_DOG_WEIGHT;
                 break;
             case "cat":
+                this.foodType = FoodType.meet;
                 this.weight = DEFAULT_CAT_WEIGHT;
                 break;
             case "elephant":
+                this.foodType = FoodType.crops;
                 this.weight = DEFAULT_ELEPHANT_WEIGHT;
                 break;
             default:
+                this.foodType = FoodType.all;
                 this.weight = DEFAULT_WEIGHT;
         }
 
@@ -38,9 +49,15 @@ public class Animal {
     }
 
     void feed(Double foodWeight) {
-        this.weight += foodWeight;
-        System.out.println("thx for food, bro");
-        System.out.println("my weight is now " + this.weight);
+        switch (this.foodType){
+            case all -> this.weight += (foodWeight/2);
+            case crops -> this.weight += (0.3 * foodWeight);
+            case meet -> this.weight += (0.7 * foodWeight);
+
+        }
+//        this.weight += foodWeight;
+//        System.out.println("thx for food, bro");
+//        System.out.println("my weight is now " + this.weight);
     }
 
 

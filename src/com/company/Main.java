@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.devices.Car;
+import com.company.devices.OperatingSystem;
 import com.company.devices.Phone;
 
 public class Main {
@@ -23,9 +24,9 @@ public class Main {
         Phone onePlus = new Phone("onePlus",
                 "8Pro",
                 2.3,
-                "Android");
+                OperatingSystem.Android);
 
-        Phone iPhone6 = new Phone("apple", "6s", 5.0, "iOs");
+        Phone iPhone6 = new Phone("apple", "6s", 5.0, OperatingSystem.iOS);
 
         System.out.println("phone: " + onePlus);
         System.out.println("phone: " + iPhone6);
@@ -46,6 +47,9 @@ public class Main {
         dog.sell(me, brother, 1.0);
 
         fiat.refill();
+        Animal cat = new Animal("cat");
+        cat.feed(10.0);
+        cat.printWeight();
 
 
     }
