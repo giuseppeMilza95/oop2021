@@ -18,11 +18,11 @@ public class Animal {
 
     public Animal(String species) {
         this.species = species;
-        this.foodType = foodType;
+
 
         switch (species) {
             case "dog":
-                this.foodType = FoodType.meet;
+                this.foodType = FoodType.all;
                 this.weight = DEFAULT_DOG_WEIGHT;
                 break;
             case "cat":

@@ -47,9 +47,15 @@ public class Main {
         dog.sell(me, brother, 1.0);
 
         fiat.refill();
+
+        //Task2
         Animal cat = new Animal("cat");
         cat.feed(10.0);
         cat.printWeight();
+
+        Animal dog1 = new Animal("dog");
+        dog1.feed(10.0);
+        dog1.printWeight();
 
 
     }
