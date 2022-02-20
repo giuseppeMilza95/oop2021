@@ -3,7 +3,7 @@ package com.company;
 public enum Country {
     ITALY("Italian","IT",80000000.0), POLAND("Polish", "PL",5000654000.0),
     SPAIN("Spanish","ES", 45102154151541.0), ENGLAND("English", "UK",45152102154.0),
-    GERMANY("GERMAN", "DE",44411551154.0);
+    GERMANY("German", "DE",44411551154.0);
 
 
     private String language;
