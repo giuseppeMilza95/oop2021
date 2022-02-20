@@ -84,17 +84,17 @@ public class Main {
 
         //Task 5
 
-        Map<String, Country> capital = new HashMap<>();
+        Map<String, Country> capital = new TreeMap<>();
         capital.put("Rome", Country.ITALY);
         capital.put("Berlin", Country.GERMANY);
         capital.put("Warszawa", Country.POLAND);
         capital.put("London", Country.UNITEDKINDOM);
         capital.put("Madrid", Country.ITALY);
 
-        Map<String, Country> sortedByCapital = new TreeMap<>(capital);
 
 
-        for (Map.Entry<String, Country> cap : sortedByCapital.entrySet()){
+
+        for (Map.Entry<String, Country> cap : capital.entrySet()){
             System.out.println("The capital sorted are: " + cap.getKey());
         }
 
