@@ -75,11 +75,12 @@ public class Main {
         double maximum = Collections.max(area.values());
 
 
+
         for (Map.Entry<Country, Double> item : area.entrySet()){
             if (item.getValue().equals(minimum)){
-                System.out.println("The minimum value is: " + item.getValue() + "and the country code is: " + item.getKey().getCode());
-            } else if (item.getValue().equals(maximum)){
-                System.out.println("The maximum value is: " + item.getValue() + "and the country code is: " + item.getKey().getCode());
+                System.out.println("The minimum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode());
+            } if (item.getValue().equals(maximum)){
+                System.out.println("The maximum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode());
             }
         }
 
@@ -127,7 +128,7 @@ public class Main {
             if (findProducer.getKey().toLowerCase().equals("ford")){
                 System.out.println("The device produces by ford is: " + findProducer.getValue().producer + " model: " +findProducer.getValue().model);
             } else if (findProducer.getKey().toLowerCase().equals("siemens")){
-                System.out.println("The device produces by ford is: " + findProducer.getValue().producer + " model: " +findProducer.getValue().model);
+                System.out.println("The device produces by siemens is: " + findProducer.getValue().producer + " model: " +findProducer.getValue().model);
             }
         }
 
