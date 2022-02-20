@@ -51,6 +51,9 @@ public class Main {
 
         fiat.refill();
 
+
+
+
         //Task2
         Animal cat = new Animal("cat", FoodType.meet);
         cat.feed(10.0,FoodType.meet);
@@ -59,6 +62,11 @@ public class Main {
         Animal dog1 = new Animal("dog", FoodType.all);
         dog1.feed(10.0, FoodType.all);
         dog1.printWeight();
+
+
+        //Task3
+
+        System.out.println(Country.POLAND.getGDPInUsD());
 
 
       //task4
@@ -106,34 +114,70 @@ public class Main {
         //Add a few objects into the map.
         //Find all devices produced by Ford and Siemens.
 
-        Device siemens = new Phone("siemens","6630",8.0, OperatingSystem.Android);
-        Device fordFocus = new Car("ford","focus");
-        Device bmw = new Car("bmw","m3");
-        Device fordXmax = new Car("ford","XMAX");
-        Map<String, Device> producer = new HashMap<>();
-        producer.put(fordFocus.producer, fordFocus);
-        producer.put(siemens.producer, siemens);
-        producer.put(bmw.producer, bmw);
+        Phone siemens = new Phone("siemens","6630",8.0, OperatingSystem.Android);
+        Phone siemens2 = new Phone("siemens","515",8.0, OperatingSystem.Android);
+        Car fordFocus = new Car("ford","focus");
+        Car bmw = new Car("bmw","m3");
+        Car fordXmax = new Car("ford","XMAX");
+        List<Device> devicesFord = new ArrayList<>();
+        devicesFord.add(fordXmax);
+        devicesFord.add(fordFocus);
+
+
+        List<Device> devicesSiemens = new ArrayList<>();
+        devicesSiemens.add(siemens2);
+        devicesSiemens.add(siemens2);
+
+
+
+        Map<String, List> producer = new HashMap<>();
+        producer.put("ford", devicesFord);
+        producer.put("siemens", devicesSiemens);
+
 
         //Like this:
 
 
 
         System.out.println(producer.get("ford"));
+        System.out.println(producer.get("siemens"));
 
         //Or like this:
 
 
 
-        for (Map.Entry<String,Device> findProducer : producer.entrySet()){
+        for (Map.Entry<String,List> findProducer : producer.entrySet()){
             if (findProducer.getKey().toLowerCase().equals("ford")){
-                System.out.println("The device produces by ford is: " + findProducer.getValue().producer + " model: " +findProducer.getValue().model);
+                System.out.println("The device produces by ford is: " + findProducer.getValue().get(0) + " model: " +findProducer.getValue().get(1));
             } else if (findProducer.getKey().toLowerCase().equals("siemens")){
-                System.out.println("The device produces by siemens is: " + findProducer.getValue().producer + " model: " +findProducer.getValue().model);
+                System.out.println("The device produces by siemens is: " + findProducer.getValue().get(0) + " model: " +findProducer.getValue().get(1));
             }
         }
 
 
+
+//        System.out.println("-------Task 6-------");
+//
+//        Car mustang = new Car("Ford","Mustang");
+//        Car fiesta = new Car("Ford","Fiesta");
+//        Phone siemensPhone1 = new Phone("Siemens","a57",9.0,OperatingSystem.Android);
+//        Phone siemensPhone2 = new Phone("Siemens","fridge-55",8.2,OperatingSystem.Android);
+//
+//        List<Device> devicesFord = new ArrayList<>();
+//        devicesFord.add(mustang);
+//        devicesFord.add(fiesta);
+//
+//
+//        List<Device> devicesSiemens = new ArrayList<>();
+//        devicesSiemens.add(siemensPhone1);
+//        devicesSiemens.add(siemensPhone2);
+//
+//        Map<String,List> devicesMap = new HashMap<>();
+//        devicesMap.put("Siemens",devicesSiemens);
+//        devicesMap.put("Ford",devicesFord);
+//
+//        System.out.println(devicesMap.get("Siemens"));
+//        System.out.println(devicesMap.get("Ford"));
 
 
 
