@@ -114,6 +114,7 @@ public class Main {
         producer.put(fordFocus.producer, fordFocus);
         producer.put(siemens.producer, siemens);
         producer.put(bmw.producer, bmw);
+
         //Like this:
 
 
