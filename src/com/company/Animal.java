@@ -74,6 +74,15 @@ public class Animal {
             System.out.println("No body mass gained");
         }
 
+
+
+//        if (this.foodType == foodType){
+//            this.weight += (foodWeight * foodType.foodToBodyRatio);
+//            System.out.println("Thank for food");
+//        } else{
+//            System.out.println("I don't like it!");
+//        }
+
         //OLD CODE:
 //        this.weight += foodWeight;
 //        System.out.println("thx for food, bro");
