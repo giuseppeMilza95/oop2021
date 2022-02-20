@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.devices.Car;
+import com.company.devices.Device;
 import com.company.devices.OperatingSystem;
 import com.company.devices.Phone;
 
@@ -97,6 +98,33 @@ public class Main {
         for (Map.Entry<String, Country> cap : capital.entrySet()){
             System.out.println("The capital sorted are: " + cap.getKey());
         }
+
+        //Task6
+
+        //Create a HashMap with String producer as key and list of devices as value.
+        //Add a few objects into the map.
+        //Find all devices produced by Ford and Siemens.
+
+        Device siemens = new Phone("siemens","6630",8.0, OperatingSystem.Android);
+        Device fordFocus = new Car("ford","focus");
+        Device bmw = new Car("bmw","m3");
+        Device fordXmax = new Car("ford","XMAX");
+        Map<String, Device> producer = new HashMap<>();
+        producer.put(fordFocus.producer, fordFocus);
+        producer.put(siemens.producer, siemens);
+        producer.put(bmw.producer, bmw);
+
+
+        for (Map.Entry<String,Device> findProducer : producer.entrySet()){
+            if (findProducer.getKey().toLowerCase().equals("ford")){
+                System.out.println("The device produces by ford is: " + findProducer.getValue().producer + " model: " +findProducer.getValue().model);
+            } else if (findProducer.getKey().toLowerCase().equals("siemens")){
+                System.out.println("The device produces by ford is: " + findProducer.getValue().producer + " model: " +findProducer.getValue().model);
+            }
+        }
+
+
+
 
 
 
