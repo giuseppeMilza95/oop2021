@@ -9,18 +9,17 @@ public class Car extends Device implements Refillable, Comparable<Car> {
 
     public Car(String producer, String model) {
         super(producer, model);
-        this.engine =  new Engine();
+        this.engine = new Engine();
 
 
     }
 
     public void startACar(){
-        engine.turnOn();
+        this.engine.turnOn();
     }
 
     public void stopACar(){
-        System.out.println("The car is turned off");
-        isRunning = false;
+        this.engine.turnOff();
     }
 
 
@@ -52,16 +51,24 @@ public class Car extends Device implements Refillable, Comparable<Car> {
 
     }
 
-    public class Engine{
-        private int horsePower;
-        private double volume;
-        private double mileage;
+    private class Engine{
+        public int horsePower;
+        public double volume;
+        public double mileage;
 
 
 
         public void turnOn() {
-            System.out.println("It is turned on, you are lucky !");
+            System.out.println("turning the key");
+            System.out.println("engine starts");
+            System.out.println("you can drive now");
+            System.out.println("Now you can go fast !!");
             isRunning = true;
+        }
+
+        public void turnOff(){
+            System.out.println("The car is turning off, finally!");
+            isRunning = false;
         }
 
 

@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Animal dog = new Animal("dog", FoodType.meet);
+        Animal dog = new Animal("dog", FoodType.MEAT);
 
         dog.name = "Szarik";
 
@@ -21,7 +21,7 @@ public class Main {
         me.pet = dog;
         me.hashCode();
 
-        me.feed(1.0, FoodType.all);
+        me.feed(1.0, FoodType.ALL);
         System.out.println(me.species);
 
         Phone onePlus = new Phone("onePlus",
@@ -43,7 +43,7 @@ public class Main {
         fiat.fuelType = "disel";
         System.out.println(fiat.producer);
 
-        dog.feed(1.0, FoodType.meet);
+        dog.feed(1.0, FoodType.MEAT);
 
         Human brother = new Human(1231.2);
 
@@ -52,36 +52,39 @@ public class Main {
         fiat.refill();
 
 
-
+        /**
+         * Following the Tasks from Advanced OOP
+         * **/
 
         //Task2
-        Animal cat = new Animal("cat", FoodType.meet);
-        cat.feed(10.0,FoodType.meet);
-        cat.printWeight();
 
-        Animal dog1 = new Animal("dog", FoodType.all);
-        dog1.feed(10.0, FoodType.all);
-        dog1.printWeight();
+        System.out.println("**************Task2*************");
+        Animal cat = new Animal("cat", FoodType.MEAT);
+        cat.feed(10.0,FoodType.MEAT);
+
+
+        Animal dog1 = new Animal("dog", FoodType.ALL);
+        dog1.feed(10.0, FoodType.ALL);
+
 
 
         //Task3
+        System.out.println("**************Task3*************");
+        System.out.println(Country.POLAND.getGDPtoPLN());
 
-        System.out.println(Country.POLAND.getGDPInUsD());
 
-
-      //task4
-
+        //Task4
+        System.out.println("**************Task4*************");
 
         Map<Country, Double> area = new HashMap<>();
         area.put(Country.ITALY, 200454150.554);
         area.put(Country.POLAND, 84510444.554);
         area.put(Country.SPAIN, 4152454150.554);
         area.put(Country.GERMANY, 70044514150.554);
-        area.put(Country.UNITEDKINDOM, 662302150.554);
+        area.put(Country.ENGLAND, 662302150.554);
 
         double minimum = Collections.min(area.values());
         double maximum = Collections.max(area.values());
-
 
 
         for (Map.Entry<Country, Double> item : area.entrySet()){
@@ -93,15 +96,14 @@ public class Main {
         }
 
         //Task 5
+        System.out.println("**************Task5*************");
 
         Map<String, Country> capital = new TreeMap<>();
         capital.put("Rome", Country.ITALY);
         capital.put("Berlin", Country.GERMANY);
         capital.put("Warszawa", Country.POLAND);
-        capital.put("London", Country.UNITEDKINDOM);
+        capital.put("London", Country.ENGLAND);
         capital.put("Madrid", Country.ITALY);
-
-
 
 
         for (Map.Entry<String, Country> cap : capital.entrySet()){
@@ -109,83 +111,48 @@ public class Main {
         }
 
         //Task6
-
-        //Create a HashMap with String producer as key and list of devices as value.
-        //Add a few objects into the map.
-        //Find all devices produced by Ford and Siemens.
+        System.out.println("**************Task6*************");
 
         Phone siemens = new Phone("siemens","6630",8.0, OperatingSystem.Android);
         Phone siemens2 = new Phone("siemens","515",8.0, OperatingSystem.Android);
         Car fordFocus = new Car("ford","focus");
         Car bmw = new Car("bmw","m3");
         Car fordXmax = new Car("ford","XMAX");
-        List<Device> devicesFord = new ArrayList<>();
-        devicesFord.add(fordXmax);
-        devicesFord.add(fordFocus);
+        List<Device> listOfCar = new ArrayList<>();
+        listOfCar.add(fordXmax);
+        listOfCar.add(fordFocus);
+        listOfCar.add(bmw);
 
-
-        List<Device> devicesSiemens = new ArrayList<>();
-        devicesSiemens.add(siemens2);
-        devicesSiemens.add(siemens2);
+        List<Device> devices = new ArrayList<>();
+        devices.add(siemens2);
+        devices.add(siemens);
 
 
 
         Map<String, List> producer = new HashMap<>();
-        producer.put("ford", devicesFord);
-        producer.put("siemens", devicesSiemens);
-
-
-        //Like this:
-
-
-
+        producer.put("ford", listOfCar);
+        producer.put("siemens", devices);
+        //First way:
+        System.out.println("**************First Way*************");
         System.out.println(producer.get("ford"));
         System.out.println(producer.get("siemens"));
 
-        //Or like this:
-
-
-
+        //Second way:
+        System.out.println("**************Second Way*************");
         for (Map.Entry<String,List> findProducer : producer.entrySet()){
-            if (findProducer.getKey().toLowerCase().equals("ford")){
-                System.out.println("The device produces by ford is: " + findProducer.getValue().get(0) + " model: " +findProducer.getValue().get(1));
-            } else if (findProducer.getKey().toLowerCase().equals("siemens")){
-                System.out.println("The device produces by siemens is: " + findProducer.getValue().get(0) + " model: " +findProducer.getValue().get(1));
+            if (findProducer.getKey().equals("ford")){
+                System.out.println(findProducer.getValue().get(0) + " model: " +findProducer.getValue().get(1));
+            } else if (findProducer.getKey().equals("siemens")){
+                System.out.println(findProducer.getValue().get(0)  + ", "+findProducer.getValue().get(1));
             }
         }
 
 
-
-//        System.out.println("-------Task 6-------");
-//
-//        Car mustang = new Car("Ford","Mustang");
-//        Car fiesta = new Car("Ford","Fiesta");
-//        Phone siemensPhone1 = new Phone("Siemens","a57",9.0,OperatingSystem.Android);
-//        Phone siemensPhone2 = new Phone("Siemens","fridge-55",8.2,OperatingSystem.Android);
-//
-//        List<Device> devicesFord = new ArrayList<>();
-//        devicesFord.add(mustang);
-//        devicesFord.add(fiesta);
-//
-//
-//        List<Device> devicesSiemens = new ArrayList<>();
-//        devicesSiemens.add(siemensPhone1);
-//        devicesSiemens.add(siemensPhone2);
-//
-//        Map<String,List> devicesMap = new HashMap<>();
-//        devicesMap.put("Siemens",devicesSiemens);
-//        devicesMap.put("Ford",devicesFord);
-//
-//        System.out.println(devicesMap.get("Siemens"));
-//        System.out.println(devicesMap.get("Ford"));
-
-
-
-
-
-
-
-
+        //Task7
+        System.out.println("**************Task7*************");
+        Car ferrari = new Car("Ferrari","458");
+        ferrari.startACar();
+        bmw.stopACar();
 
 
 
