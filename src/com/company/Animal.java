@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.HashMap;
+
 public class Animal {
 
     /*public enum FoodType {
@@ -110,5 +112,8 @@ public class Animal {
             buyer.pet = this;
         }
     }
+
+
+
 
 }

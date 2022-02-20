@@ -4,6 +4,8 @@ import com.company.devices.Car;
 import com.company.devices.OperatingSystem;
 import com.company.devices.Phone;
 
+import java.util.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -58,9 +60,44 @@ public class Main {
         dog1.printWeight();
 
 
-        CountryGDP italy = new CountryGDP();
+      //task4
 
-        System.out.println(italy.GdpToUsd());
+
+        Map<Country, Double> area = new HashMap<>();
+        area.put(Country.ITALY, 200454150.554);
+        area.put(Country.POLAND, 84510444.554);
+        area.put(Country.SPAIN, 4152454150.554);
+        area.put(Country.GERMANY, 70044514150.554);
+        area.put(Country.UNITEDKINDOM, 662302150.554);
+
+        double minimum = Collections.min(area.values());
+        double maximum = Collections.max(area.values());
+
+
+        for (Map.Entry<Country, Double> item : area.entrySet()){
+            if (item.getValue().equals(minimum)){
+                System.out.println("The minimum value is: " + item.getValue() + "and the country code is: " + item.getKey().getCode());
+            } else if (item.getValue().equals(maximum)){
+                System.out.println("The maximum value is: " + item.getValue() + "and the country code is: " + item.getKey().getCode());
+            }
+        }
+
+        //Task 5
+
+        Map<String, Country> capital = new HashMap<>();
+        capital.put("Rome", Country.ITALY);
+        capital.put("Berlin", Country.GERMANY);
+        capital.put("Warszawa", Country.POLAND);
+        capital.put("London", Country.UNITEDKINDOM);
+        capital.put("Madrid", Country.ITALY);
+
+        Map<String, Country> sortedByCapital = new TreeMap<>(capital);
+
+
+        for (Map.Entry<String, Country> cap : sortedByCapital.entrySet()){
+            System.out.println("The capital sorted are: " + cap.getKey());
+        }
+
 
 
 
