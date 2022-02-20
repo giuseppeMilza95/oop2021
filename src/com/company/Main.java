@@ -58,6 +58,13 @@ public class Main {
         dog1.printWeight();
 
 
+        CountryGDP italy = new CountryGDP();
+
+        System.out.println(italy.GdpToUsd());
+
+
+
+
 
 
     }
