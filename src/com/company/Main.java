@@ -70,7 +70,7 @@ public class Main {
 
         //Task3
         System.out.println("**************Task3*************");
-        System.out.println(Country.POLAND.getGDPtoPLN());
+        System.out.println("Country GDP in PLN"  + Country.POLAND.getGdpInPln());
 
 
         //Task4
@@ -86,27 +86,28 @@ public class Main {
         double minimum = Collections.min(area.values());
         double maximum = Collections.max(area.values());
 
-
         for (Map.Entry<Country, Double> item : area.entrySet()){
             if (item.getValue().equals(minimum)){
-                System.out.println("The minimum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode());
+                System.out.println("The minimum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode() + " and the language is: " +item.getKey().getLanguage());
             } if (item.getValue().equals(maximum)){
-                System.out.println("The maximum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode());
+                System.out.println("The maximum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode() + " and the language is: " +item.getKey().getLanguage());
             }
         }
 
         //Task 5
         System.out.println("**************Task5*************");
 
-        Map<String, Country> capital = new TreeMap<>();
+        Map<String, Country> capital = new HashMap<>();
         capital.put("Rome", Country.ITALY);
         capital.put("Berlin", Country.GERMANY);
-        capital.put("Warszawa", Country.POLAND);
+        capital.put("Warsaw", Country.POLAND);
         capital.put("London", Country.ENGLAND);
         capital.put("Madrid", Country.ITALY);
 
+        //Converting into a TreeMap to have the result sorted
+        Map<String, Country> capitalSorted = new TreeMap<>(capital);
 
-        for (Map.Entry<String, Country> cap : capital.entrySet()){
+        for (Map.Entry<String, Country> cap : capitalSorted.entrySet()){
             System.out.println("The capital sorted are: " + cap.getKey());
         }
 
@@ -115,17 +116,21 @@ public class Main {
 
         Phone siemens = new Phone("siemens","6630",8.0, OperatingSystem.Android);
         Phone siemens2 = new Phone("siemens","515",8.0, OperatingSystem.Android);
+        Phone iphone = new Phone("apple","X",8.0,OperatingSystem.iOS);
+
         Car fordFocus = new Car("ford","focus");
         Car bmw = new Car("bmw","m3");
-        Car fordXmax = new Car("ford","XMAX");
+        Car fordEscort = new Car("ford","Escort");
+
         List<Device> listOfCar = new ArrayList<>();
-        listOfCar.add(fordXmax);
+        listOfCar.add(fordEscort);
         listOfCar.add(fordFocus);
         listOfCar.add(bmw);
 
         List<Device> devices = new ArrayList<>();
         devices.add(siemens2);
         devices.add(siemens);
+        devices.add(iphone);
 
 
 

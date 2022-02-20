@@ -8,13 +8,13 @@ public enum Country {
 
     private String language;
     private String code;
-    private double GDPInUSD;
+    private double gdpInUsd;
 
 
-    Country(String language, String code, double GDPInUSD) {
+    Country(String language, String code, double gdpInUsd) {
         this.language = language;
         this.code = code;
-        this.GDPInUSD = GDPInUSD;
+        this.gdpInUsd = gdpInUsd;
     }
 
     public String getLanguage() {
@@ -26,10 +26,10 @@ public enum Country {
     }
 
     public double getGDPInUSD() {
-        return GDPInUSD;
+        return gdpInUsd;
     }
 
-    public double getGDPtoPLN(){
+    public double getGdpInPln(){
         return Country.ITALY.getGDPInUSD()*4.00;
     }
 }
