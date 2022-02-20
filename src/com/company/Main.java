@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Animal dog = new Animal("dog");
+        Animal dog = new Animal("dog", FoodType.meet);
 
         dog.name = "Szarik";
 
@@ -18,7 +18,7 @@ public class Main {
         me.pet = dog;
         me.hashCode();
 
-        me.feed(1.0);
+        me.feed(1.0, FoodType.all);
         System.out.println(me.species);
 
         Phone onePlus = new Phone("onePlus",
@@ -40,7 +40,7 @@ public class Main {
         fiat.fuelType = "disel";
         System.out.println(fiat.producer);
 
-        dog.feed(1.0);
+        dog.feed(1.0, FoodType.meet);
 
         Human brother = new Human(1231.2);
 
@@ -49,13 +49,15 @@ public class Main {
         fiat.refill();
 
         //Task2
-        Animal cat = new Animal("cat");
-        cat.feed(10.0);
+        Animal cat = new Animal("cat", FoodType.meet);
+        cat.feed(10.0,FoodType.meet);
         cat.printWeight();
 
-        Animal dog1 = new Animal("dog");
-        dog1.feed(10.0);
+        Animal dog1 = new Animal("dog", FoodType.all);
+        dog1.feed(10.0, FoodType.all);
         dog1.printWeight();
+
+
 
 
     }
