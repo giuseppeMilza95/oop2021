@@ -30,6 +30,7 @@ public class Car extends Device implements Refillable, Comparable<Car> {
         System.out.println("turning the key");
         System.out.println("engine starts");
         System.out.println("you can drive now");
+
     }
 
     @Override
@@ -51,11 +52,11 @@ public class Car extends Device implements Refillable, Comparable<Car> {
 
     }
 
-    private class Engine{
+    public class Engine{
         private int horsePower;
         private double volume;
         private double mileage;
-        private Engine engine;
+
 
 
         public void turnOn() {
