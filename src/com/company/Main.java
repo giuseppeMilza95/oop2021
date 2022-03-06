@@ -5,6 +5,10 @@ import com.company.devices.Device;
 import com.company.devices.OperatingSystem;
 import com.company.devices.Phone;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.*;
 
 public class Main {
@@ -132,7 +136,6 @@ public class Main {
         appleList.add(appleCar);
 
 
-
         Map<String, List> producer = new HashMap<>();
         producer.put("tesla", teslaList);
         producer.put("apple", appleList);
@@ -142,27 +145,26 @@ public class Main {
         System.out.println(producer.get("apple"));
 
 
-
         //Second way:
         System.out.println("**************Second Way*************");
         for (Map.Entry<String, List> findProducer : producer.entrySet()) {
 
             if (findProducer.getKey().equals("tesla")) {
                 System.out.println(findProducer.getValue().get(0) + " model: " + findProducer.getValue().get(1));
-            } else if (findProducer.getKey().equals("apple")){
-                System.out.println(findProducer.getValue().get(0)  + ", "+findProducer.getValue().get(1));
+            } else if (findProducer.getKey().equals("apple")) {
+                System.out.println(findProducer.getValue().get(0) + ", " + findProducer.getValue().get(1));
             }
-            }
+        }
 
 
-            //Task7
-            System.out.println("**************Task7*************");
-            Car ferrari = new Car("Ferrari", "458");
-            ferrari.startACar();
+        //Task7
+        System.out.println("**************Task7*************");
+        Car ferrari = new Car("Ferrari", "458");
+        ferrari.startACar();
 
-            //Task8
-            System.out.println("**************Task8*************");
-            //First way
+        //Task8
+        System.out.println("**************Task8*************");
+        //First way
 
 //            Animal enzo = new Human(80.0);
 //            Animal giuseppe = new Human(80.0);
@@ -183,53 +185,79 @@ public class Main {
 //            chicken.setWeight(5.0);
 //            cow.setWeight(200.0);
 
-            //Second way
+        //Second way
 
-            List<Animal> animals = new LinkedList<>();
+        List<Animal> animals = new LinkedList<>();
 
-            animals.add(new Human(1000.0));
-            animals.add(new Human(80.0));
-            animals.add(new Pet("cat", FoodType.ALL,"Charlie"));
-            animals.add(new Pet("dog", FoodType.ALL,"brown"));
-            animals.add(new FarmAnimal("cow", FoodType.CROPS,"Carl"));
-            animals.add(new FarmAnimal("chicken", FoodType.CROPS,"Ben"));
-            animals.get(0).setWeight(80.0);
-            animals.get(0).name = "Giuseppe";
-            animals.get(1).setWeight(90.0);
-            animals.get(1).name = "Enzo";
-            animals.get(2).setWeight(5.0);
-            animals.get(3).setWeight(30.0);
-            animals.get(4).setWeight(200.0);
-            animals.get(5).setWeight(6.0);
-
-
-            // sorting the list using comparator
-            Collections.sort(animals, new Comparator<Animal>() {
-                @Override
-                public int compare(Animal o1, Animal o2) {
-                    return o1.getWeight().compareTo(o2.getWeight());
-                }
-            });
-
-            //or with lambda
-
-            //Collections.sort(animals, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
+        animals.add(new Human(1000.0));
+        animals.add(new Human(80.0));
+        animals.add(new Pet("cat", FoodType.ALL, "Charlie"));
+        animals.add(new Pet("dog", FoodType.ALL, "brown"));
+        animals.add(new FarmAnimal("cow", FoodType.CROPS, "Carl"));
+        animals.add(new FarmAnimal("chicken", FoodType.CROPS, "Ben"));
+        animals.get(0).setWeight(80.0);
+        animals.get(0).name = "Giuseppe";
+        animals.get(1).setWeight(90.0);
+        animals.get(1).name = "Enzo";
+        animals.get(2).setWeight(5.0);
+        animals.get(3).setWeight(30.0);
+        animals.get(4).setWeight(200.0);
+        animals.get(5).setWeight(6.0);
 
 
-            //print out
-
-            System.out.println(animals.toString());
-
-            // print out the list
-            for (Animal animal : animals){
-                System.out.println("The weight of the animal " + animal.species + " is: "+ animal.getWeight());
+        // sorting the list using comparator
+        Collections.sort(animals, new Comparator<Animal>() {
+            @Override
+            public int compare(Animal o1, Animal o2) {
+                return o1.getWeight().compareTo(o2.getWeight());
             }
+        });
 
-            //Task 11
+        //or with lambda
 
-            //Collections.sort(animals, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
+        //Collections.sort(animals, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
 
 
+        //print out
+
+        System.out.println(animals.toString());
+
+        // print out the list
+        for (Animal animal : animals) {
+            System.out.println("The weight of the animal " + animal.species + " is: " + animal.getWeight());
         }
+
+        //Task 11
+
+        //Collections.sort(animals, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
+
+
+        //API
+        //create the account
+
+        System.out.println("***************API*************");
+
+        APIConnector connector = new APIConnector();
+        try{
+
+            String data = connector.getCurrencyData();
+            System.out.println(data.toString());
+            String [] array = data.split(",");
+            String numberValue;
+            double plnvalue;
+            for (String s : array){
+                if (s.contains("PLN")) {
+                    numberValue = s.split(":")[1];
+                    plnvalue = Double.parseDouble(numberValue);
+                    System.out.println(plnvalue);
+
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
+}
+
 
