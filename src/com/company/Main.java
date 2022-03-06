@@ -60,17 +60,16 @@ public class Main {
 
         System.out.println("**************Task2*************");
         Animal cat = new Animal("cat", FoodType.MEAT);
-        cat.feed(10.0,FoodType.MEAT);
+        cat.feed(10.0, FoodType.MEAT);
 
 
         Animal dog1 = new Animal("dog", FoodType.ALL);
         dog1.feed(10.0, FoodType.ALL);
 
 
-
         //Task3
         System.out.println("**************Task3*************");
-        System.out.println("Country GDP in PLN"  + Country.POLAND.getGdpInPln());
+        System.out.println("Country GDP in PLN" + Country.POLAND.getGdpInPln());
 
 
         //Task4
@@ -86,11 +85,12 @@ public class Main {
         double minimum = Collections.min(area.values());
         double maximum = Collections.max(area.values());
 
-        for (Map.Entry<Country, Double> item : area.entrySet()){
-            if (item.getValue().equals(minimum)){
-                System.out.println("The minimum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode() + " and the language is: " +item.getKey().getLanguage());
-            } if (item.getValue().equals(maximum)){
-                System.out.println("The maximum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode() + " and the language is: " +item.getKey().getLanguage());
+        for (Map.Entry<Country, Double> item : area.entrySet()) {
+            if (item.getValue().equals(minimum)) {
+                System.out.println("The minimum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode() + " and the language is: " + item.getKey().getLanguage());
+            }
+            if (item.getValue().equals(maximum)) {
+                System.out.println("The maximum value is: " + item.getValue() + " and the country code is: " + item.getKey().getCode() + " and the language is: " + item.getKey().getLanguage());
             }
         }
 
@@ -107,59 +107,129 @@ public class Main {
         //Converting into a TreeMap to have the result sorted
         Map<String, Country> capitalSorted = new TreeMap<>(capital);
 
-        for (Map.Entry<String, Country> cap : capitalSorted.entrySet()){
+        for (Map.Entry<String, Country> cap : capitalSorted.entrySet()) {
             System.out.println("The capital sorted are: " + cap.getKey());
         }
 
         //Task6
         System.out.println("**************Task6*************");
 
-        Phone siemens = new Phone("siemens","6630",8.0, OperatingSystem.Android);
-        Phone siemens2 = new Phone("siemens","515",8.0, OperatingSystem.Android);
-        Phone iphone = new Phone("apple","X",8.0,OperatingSystem.iOS);
+//        Phone siemens = new Phone("siemens", "6630", 8.0, OperatingSystem.Android);
+//        Phone siemens2 = new Phone("siemens", "515", 8.0, OperatingSystem.Android);
+//        Phone iphone = new Phone("apple", "X", 8.0, OperatingSystem.iOS);
 
-        Car fordFocus = new Car("ford","focus");
-        Car bmw = new Car("bmw","m3");
-        Car fordEscort = new Car("ford","Escort");
+        Device appleCar = new Car("apple", "applecar X");
+        Device iphone12 = new Car("apple", "12");
+        Device tesla = new Car("tesla", "model x");
+        Device teslaPhone = new Phone("tesla", "phone x", 9.0, OperatingSystem.Android);
 
-        List<Device> listOfCar = new ArrayList<>();
-        listOfCar.add(fordEscort);
-        listOfCar.add(fordFocus);
-        listOfCar.add(bmw);
+        List<Device> teslaList = new LinkedList<>();
+        teslaList.add(teslaPhone);
+        teslaList.add(tesla);
 
-        List<Device> devices = new ArrayList<>();
-        devices.add(siemens2);
-        devices.add(siemens);
-        devices.add(iphone);
+        List<Device> appleList = new ArrayList<>();
+        appleList.add(iphone12);
+        appleList.add(appleCar);
 
 
 
         Map<String, List> producer = new HashMap<>();
-        producer.put("ford", listOfCar);
-        producer.put("siemens", devices);
+        producer.put("tesla", teslaList);
+        producer.put("apple", appleList);
         //First way:
         System.out.println("**************First Way*************");
-        System.out.println(producer.get("ford"));
-        System.out.println(producer.get("siemens"));
+        System.out.println(producer.get("tesla"));
+        System.out.println(producer.get("apple"));
+
+
 
         //Second way:
         System.out.println("**************Second Way*************");
-        for (Map.Entry<String,List> findProducer : producer.entrySet()){
-            if (findProducer.getKey().equals("ford")){
-                System.out.println(findProducer.getValue().get(0) + " model: " +findProducer.getValue().get(1));
-            } else if (findProducer.getKey().equals("siemens")){
+        for (Map.Entry<String, List> findProducer : producer.entrySet()) {
+
+            if (findProducer.getKey().equals("tesla")) {
+                System.out.println(findProducer.getValue().get(0) + " model: " + findProducer.getValue().get(1));
+            } else if (findProducer.getKey().equals("apple")){
                 System.out.println(findProducer.getValue().get(0)  + ", "+findProducer.getValue().get(1));
             }
+            }
+
+
+            //Task7
+            System.out.println("**************Task7*************");
+            Car ferrari = new Car("Ferrari", "458");
+            ferrari.startACar();
+
+            //Task8
+            System.out.println("**************Task8*************");
+            //First way
+
+//            Animal enzo = new Human(80.0);
+//            Animal giuseppe = new Human(80.0);
+//            Animal cat1 = new Pet("cat",FoodType.CROPS);
+//            Animal dog2 = new Pet("dog",FoodType.CROPS);
+//            Animal chicken = new FarmAnimal("chicken", FoodType.CROPS);
+//            Animal cow = new FarmAnimal("cow", FoodType.CROPS);
+//            animals.add(enzo);
+//            animals.add(giuseppe);
+//            animals.add(cat1);
+//            animals.add(dog2);
+//            animals.add(chicken);
+//            animals.add(cow);
+//            enzo.setWeight(80.0);
+//            giuseppe.setWeight(90.0);
+//            cat1.setWeight(5.0);
+//            dog1.setWeight(6.0);
+//            chicken.setWeight(5.0);
+//            cow.setWeight(200.0);
+
+            //Second way
+
+            List<Animal> animals = new LinkedList<>();
+
+            animals.add(new Human(1000.0));
+            animals.add(new Human(80.0));
+            animals.add(new Pet("cat", FoodType.ALL,"Charlie"));
+            animals.add(new Pet("dog", FoodType.ALL,"brown"));
+            animals.add(new FarmAnimal("cow", FoodType.CROPS,"Carl"));
+            animals.add(new FarmAnimal("chicken", FoodType.CROPS,"Ben"));
+            animals.get(0).setWeight(80.0);
+            animals.get(0).name = "Giuseppe";
+            animals.get(1).setWeight(90.0);
+            animals.get(1).name = "Enzo";
+            animals.get(2).setWeight(5.0);
+            animals.get(3).setWeight(30.0);
+            animals.get(4).setWeight(200.0);
+            animals.get(5).setWeight(6.0);
+
+
+            // sorting the list using comparator
+            Collections.sort(animals, new Comparator<Animal>() {
+                @Override
+                public int compare(Animal o1, Animal o2) {
+                    return o1.getWeight().compareTo(o2.getWeight());
+                }
+            });
+
+            //or with lambda
+
+            //Collections.sort(animals, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
+
+
+            //print out
+
+            System.out.println(animals.toString());
+
+            // print out the list
+            for (Animal animal : animals){
+                System.out.println("The weight of the animal " + animal.species + " is: "+ animal.getWeight());
+            }
+
+            //Task 11
+
+            //Collections.sort(animals, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
+
+
         }
-
-
-        //Task7
-        System.out.println("**************Task7*************");
-        Car ferrari = new Car("Ferrari","458");
-        ferrari.startACar();
-        bmw.stopACar();
-
-
-
     }
-}
+
