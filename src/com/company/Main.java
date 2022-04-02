@@ -4,6 +4,8 @@ import com.company.devices.Car;
 import com.company.devices.Device;
 import com.company.devices.OperatingSystem;
 import com.company.devices.Phone;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -257,6 +259,20 @@ public class Main {
             e.printStackTrace();
         }
 
+
+        //API Using JSON Library
+        try {
+            connector.getCurrency(connector.getCurrencyData());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        // Task 12
+        try {
+            System.out.println("***************Task12*************");
+            connector.exchangeToPln(2000.0, 4.25, connector.getCurrencyData());
+        }catch (Exception e){
+            e.getMessage();
+        }
     }
 }
 
