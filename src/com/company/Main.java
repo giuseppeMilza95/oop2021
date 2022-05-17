@@ -4,13 +4,7 @@ import com.company.devices.Car;
 import com.company.devices.Device;
 import com.company.devices.OperatingSystem;
 import com.company.devices.Phone;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.*;
 
 public class Main {
@@ -119,11 +113,52 @@ public class Main {
 
         //Task6
         System.out.println("**************Task6*************");
+        System.out.println("**************Animal*************");
 
 //        Phone siemens = new Phone("siemens", "6630", 8.0, OperatingSystem.Android);
 //        Phone siemens2 = new Phone("siemens", "515", 8.0, OperatingSystem.Android);
 //        Phone iphone = new Phone("apple", "X", 8.0, OperatingSystem.iOS);
 
+
+
+
+
+        Animal aida = new Pet("dog", FoodType.MEAT, "Aida");
+        Animal leo = new Pet("cat", FoodType.MEAT, "Leo");
+        Animal giuseppe = new Human(2000.0);
+        Animal giovanni = new Human(2000.0);
+        Animal cow = new FarmAnimal("cow", FoodType.CROPS, "Agata");
+        Animal lamb = new FarmAnimal("cow", FoodType.CROPS, "Agata");
+
+        List<Animal> petsList = new ArrayList<>();
+        petsList.add(aida);
+        petsList.add(leo);
+
+        List<Animal> humanList = new ArrayList<>();
+        humanList.add(giuseppe);
+        humanList.add(giovanni);
+
+        List<Animal> farmAnimalList = new ArrayList<>();
+        farmAnimalList.add(cow);
+        farmAnimalList.add(lamb);
+
+
+
+
+        Map<FoodType, List<Animal>> animalMap = new HashMap<>();
+        animalMap.put(FoodType.MEAT, petsList);
+        animalMap.put(FoodType.ALL, humanList);
+        animalMap.put(FoodType.CROPS, farmAnimalList);
+
+        //First way:
+        System.out.println(animalMap.get(FoodType.CROPS));
+        System.out.println(animalMap.get(FoodType.ALL));
+        System.out.println(animalMap.get(FoodType.MEAT));
+
+
+
+
+//      Same exercise but with Devices
         Device appleCar = new Car("apple", "applecar X");
         Device iphone12 = new Car("apple", "12");
         Device tesla = new Car("tesla", "model x");
@@ -142,6 +177,7 @@ public class Main {
         producer.put("tesla", teslaList);
         producer.put("apple", appleList);
         //First way:
+        System.out.println("**************Devices*************");
         System.out.println("**************First Way*************");
         System.out.println(producer.get("tesla"));
         System.out.println(producer.get("apple"));
@@ -208,7 +244,7 @@ public class Main {
 
 
         // sorting the list using comparator
-        Collections.sort(animals, new Comparator<Animal>() {
+        Collections.sort(animals, new Comparator<>() {
             @Override
             public int compare(Animal o1, Animal o2) {
                 return o1.getWeight().compareTo(o2.getWeight());
@@ -231,7 +267,11 @@ public class Main {
 
         //Task 11
 
-        //Collections.sort(animals, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
+        Collections.sort(animals, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
+
+        //print out
+
+        System.out.println(animals.toString());
 
 
         //API

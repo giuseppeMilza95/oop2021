@@ -25,12 +25,12 @@ public enum Country {
         return code;
     }
 
-    public double getGDPInUSD() {
+    public double getGdpInUsd() {
         return gdpInUsd;
     }
 
     public double getGdpInPln(){
-        return Country.ITALY.getGDPInUSD()*4.00;
+        return this.getGdpInUsd()*4.00;
     }
 }
 
