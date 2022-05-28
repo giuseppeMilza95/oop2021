@@ -268,10 +268,12 @@ public class Main {
         //Task 11
 
         Collections.sort(animals, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
+        //or
+        Collections.sort(animals, Comparator.comparing(Animal::getWeight));
 
         //print out
 
-        System.out.println(animals.toString());
+        System.out.println(animals);
 
 
         //API
